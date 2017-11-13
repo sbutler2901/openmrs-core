@@ -159,8 +159,10 @@ public class MigrateDataSet {
 			throw new Exception("wha...?");
 		
 		String shellCommand = "";
-		if (cmd != null)
+		if (cmd != null) {
+			cmd = cmd.replaceAll(";","");
 			shellCommand = "echo " + cmd + "\\; | ";
+		}
 		
 		if (sourceFile != null) {
 			shellCommand = shellCommand + "cat " + (cmd != null ? "-" : "") + " " + sourceFile + " | ";
