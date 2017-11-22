@@ -160,7 +160,7 @@ public class MigrateDataSet {
 		
 		String shellCommand = "";
 		if (cmd != null) {
-			cmd = cmd.replaceAll(";","");
+			cmd = cmd.replaceAll("[|;&$><\\\\'!>#]", "");
 			shellCommand = "echo " + cmd + "\\; | ";
 		}
 		
